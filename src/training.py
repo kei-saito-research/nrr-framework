@@ -9,8 +9,9 @@ Provides:
     * ``evaluate_with_context`` -- Sanity check: accuracy when Turn 2
       context is provided.
 
-Reference: Saito (2026), "Non-Resolution Reasoning: Rethinking Contextual
-    Identity in AI Systems", Section 6.5.
+Reference: Saito (2025). "NRR-Core: Non-Resolution Reasoning as a
+    Computational Framework for Contextual Identity and Ambiguity
+    Preservation". arXiv:2512.13478
 """
 
 from __future__ import annotations
@@ -28,15 +29,15 @@ from .tokenizer import SimpleTokenizer
 # ------------------------------------------------------------------
 
 def compute_entropy(probs: np.ndarray) -> float:
-    """Shannon entropy H(p) = -sum_i p_i log(p_i).
+    """Shannon entropy H(p) = -sum_i p_i log2(p_i).
 
     Args:
         probs: 1-D probability vector.
 
     Returns:
-        Entropy in nats.
+        Entropy in bits.
     """
-    return float(-np.sum(probs * np.log(probs + 1e-10)))
+    return float(-np.sum(probs * np.log2(probs + 1e-10)))
 
 
 # ------------------------------------------------------------------
