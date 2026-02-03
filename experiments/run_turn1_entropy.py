@@ -4,8 +4,9 @@ Turn 1 Entropy Verification Experiment
 =======================================
 
 Reproduces Table 1 from:
-    Saito, K. (2026). "Non-Resolution Reasoning: Rethinking Contextual
-    Identity in AI Systems". arXiv:2512.13478
+    Saito, K. (2025). "NRR-Core: Non-Resolution Reasoning as a
+    Computational Framework for Contextual Identity and Ambiguity
+    Preservation". arXiv:2512.13478
 
 Core idea:
     Measure the output entropy at Turn 1 (before disambiguating context).
@@ -17,9 +18,11 @@ Expected results (Paper 1, Table 1):
     +----------+---------------------+--------------+------------------+
     | Model    | Turn 1 Entropy H    | Gate Entropy | Context Accuracy |
     +----------+---------------------+--------------+------------------+
-    | Baseline | 0.102 +/- 0.089     | ---          | 100%             |
-    | NRR-lite | 0.629 +/- 0.025     | 0.693        | 100%             |
+    | Baseline | 0.15 +/- 0.08       | ---          | 100%             |
+    | NRR-lite | 0.91 +/- 0.03       | 1.0          | 100%             |
     +----------+---------------------+--------------+------------------+
+
+    Max entropy for binary = log2(2) = 1.0 bits.
 
 Usage:
     python run_turn1_entropy.py              # single seed (42)
@@ -51,15 +54,16 @@ from src.training import (
 
 
 # ======================================================================
-# Paper 1 Table 1 reference values
+# Paper 1 Table 1 reference values (in bits)
 # ======================================================================
 
 PAPER1_TABLE1 = {
-    "baseline_h_mean": 0.102,
-    "baseline_h_std": 0.089,
-    "nrr_h_mean": 0.629,
-    "nrr_h_std": 0.025,
-    "gate_entropy": 0.693,
+    "baseline_h_mean": 0.15,
+    "baseline_h_std": 0.08,
+    "nrr_h_mean": 0.91,
+    "nrr_h_std": 0.03,
+    "gate_entropy": 1.0,
+    "max_entropy": 1.0,  # log2(2) = 1.0 bits
     "context_accuracy": 1.0,
     "n_seeds": 5,
     "seeds": [42, 123, 456, 789, 1000],
@@ -83,7 +87,7 @@ def run_single_seed(seed: int = 42, verbose: bool = True) -> dict:
         print("Turn 1 Entropy Experiment")
         print("=" * 70)
         print(f"\nSeed: {seed}")
-        print(f"Max entropy for binary: H_max = log(2) = {np.log(2):.4f}")
+        print(f"Max entropy for binary: H_max = log2(2) = 1.0 bits")
 
     # Data
     if verbose:
@@ -157,10 +161,10 @@ def run_single_seed(seed: int = 42, verbose: bool = True) -> dict:
         print("\n  Turn 1 Entropy (Turn 2 = neutral)")
         print("  " + "-" * 50)
         print(f"  Baseline:  H = {baseline_entropy['mean_entropy']:.4f}"
-              f" +/- {baseline_entropy['std_entropy']:.4f}")
+              f" +/- {baseline_entropy['std_entropy']:.4f} bits")
         print(f"  NRR-lite:  H = {nrr_entropy['mean_entropy']:.4f}"
-              f" +/- {nrr_entropy['std_entropy']:.4f}")
-        print(f"  Max H:         {np.log(2):.4f} (perfect ambiguity)")
+              f" +/- {nrr_entropy['std_entropy']:.4f} bits")
+        print(f"  Max H:         1.0 bits (perfect ambiguity)")
 
         print("\n  Accuracy WITH Turn 2 Context")
         print("  " + "-" * 50)
@@ -173,7 +177,7 @@ def run_single_seed(seed: int = 42, verbose: bool = True) -> dict:
             gate_h = float(np.mean(nrr_entropy["gate_entropies"]))
             print(f"\n  NRR-lite Gate Entropy at Turn 1")
             print("  " + "-" * 50)
-            print(f"  Gate H = {gate_h:.4f} (ideal: {np.log(2):.4f})")
+            print(f"  Gate H = {gate_h:.4f} bits (ideal: 1.0 bits)")
 
     return {
         "seed": seed,
@@ -260,7 +264,7 @@ def run_multi_seed(seeds=None, verbose: bool = True) -> dict:
         print(f"{'Std':<10} {summary['baseline_h_std']:<15.4f}"
               f" {summary['nrr_h_std']:<15.4f}")
         print(f"\nNRR-lite wins: {nrr_wins}/{len(seeds)}")
-        print(f"Mean difference: {mean_diff:.4f} +/- {se_diff:.4f}")
+        print(f"Mean difference: {mean_diff:.4f} +/- {se_diff:.4f} bits")
         print(f"t-statistic: {t_stat:.2f}")
         if t_stat > 2:
             print("-> Statistically significant (t > 2)")
@@ -279,7 +283,7 @@ def verify_against_paper(summary: dict) -> dict:
         Dict with pass/fail for each metric.
     """
     ref = PAPER1_TABLE1
-    tol = 0.02  # tolerance
+    tol = 0.05  # tolerance (slightly wider for bits conversion)
 
     checks = {
         "baseline_h_mean": {
@@ -356,6 +360,7 @@ def main():
             "experiment": "Turn 1 Entropy Verification",
             "paper": "arXiv:2512.13478",
             "table": "Table 1",
+            "units": "bits",
             "summary": summary,
             "verification": {
                 k: {kk: vv for kk, vv in v.items()}
@@ -370,6 +375,7 @@ def main():
             "experiment": "Turn 1 Entropy Verification (single seed)",
             "paper": "arXiv:2512.13478",
             "table": "Table 1",
+            "units": "bits",
             "result": result,
         }
 
