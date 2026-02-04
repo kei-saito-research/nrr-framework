@@ -43,11 +43,10 @@ Rather than measuring classification accuracy (which can be seed-dependent), we 
 4. Results are stable across all 5 seeds (NRR-lite wins 5/5)
 
 ## Repository Structure
-
 ```
 nrr-framework/
 ├── README.md
-├── LICENSE                         # MIT
+├── LICENSE                         # CC BY 4.0
 ├── requirements.txt                # numpy, matplotlib
 ├── data/
 │   └── csws_dataset.json           # Dataset configuration
@@ -65,7 +64,6 @@ nrr-framework/
 ```
 
 ## Quick Start
-
 ```bash
 # Install dependencies (NumPy only required; matplotlib for plots)
 pip install numpy matplotlib
@@ -81,7 +79,6 @@ python experiments/run_turn1_entropy.py --seed 123
 ```
 
 ### Expected Output (multi-seed)
-
 ```
 MULTI-SEED SUMMARY
 ======================================================================
@@ -107,7 +104,6 @@ VERIFICATION AGAINST PAPER 1 TABLE 1
 ## Architecture Details
 
 ### Baseline (Single Embedding)
-
 ```
 Turn 1 tokens → Embedding[vocab, d] → mean pool → turn1_vec
 Turn 2 tokens → Embedding[vocab, d] → mean pool → turn2_vec
@@ -117,7 +113,6 @@ Turn 2 tokens → Embedding[vocab, d] → mean pool → turn2_vec
 Each token has exactly one embedding. "bank" is forced into a single point in embedding space.
 
 ### NRR-lite (Multi-Vector Embedding + Context Gate)
-
 ```
 Turn 2 tokens → Embedding[vocab, d] → mean pool → context_vec
 context_vec → gate_W → softmax → gates = [g₀, g₁]
@@ -144,7 +139,6 @@ No deep learning framework required. All operations are pure NumPy.
 2. **NRR-Phi**: Saito, K. (2026). NRR-Phi: Text-to-State Mapping for Ambiguity Preservation in LLM Inference. *arXiv:2601.19933* → [nrr-phi-mapping](https://github.com/kei-saito-research/nrr-phi-mapping)
 
 ## Citation
-
 ```bibtex
 @article{saito2025nrrcore,
   title={NRR-Core: Non-Resolution Reasoning as a Computational Framework for Contextual Identity and Ambiguity Preservation},
@@ -156,4 +150,4 @@ No deep learning framework required. All operations are pure NumPy.
 
 ## License
 
-MIT License. See [LICENSE](LICENSE).
+CC BY 4.0. See [LICENSE](LICENSE).
