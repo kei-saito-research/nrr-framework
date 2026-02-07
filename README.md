@@ -143,7 +143,7 @@ No deep learning framework required. All operations are pure NumPy.
 
 ## Related Repositories
 
-- [NRR-Phi](https://github.com/kei-saito-research/nrr-phi-mapping) - Text-to-state mapping *(arXiv:2601.19933)*
+- [NRR-Phi](https://github.com/kei-saito-research/nrr-phi) - Text-to-state mapping *(arXiv:2601.19933)*
 - [NRR-IME](https://github.com/kei-saito-research/nrr-ime) - Structure-aware optimization
 - [NRR-Universal](https://github.com/kei-saito-research/nrr-universal) - Universal generality validation
 
