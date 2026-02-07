@@ -229,7 +229,7 @@ def run_multi_seed(seeds=None, verbose: bool = True) -> dict:
     h_diffs = [n - b for n, b in zip(nrr_hs, baseline_hs)]
 
     mean_diff = float(np.mean(h_diffs))
-    se_diff = float(np.std(h_diffs) / np.sqrt(len(h_diffs)))
+    se_diff = float(np.std(h_diffs, ddof=1) / np.sqrt(len(h_diffs)))
     t_stat = mean_diff / se_diff if se_diff > 0 else 0.0
     nrr_wins = sum(1 for d in h_diffs if d > 0)
 
