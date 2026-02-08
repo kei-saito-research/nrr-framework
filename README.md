@@ -158,6 +158,14 @@ No deep learning framework required. All operations are pure NumPy.
 }
 ```
 
+## Commercial Use
+
+This work is released openly.
+
+If you plan to use it in a commercial or production setting,
+a short message would be appreciated.
+It helps me understand real-world use and continue the research.
+
 ## License
 
 CC BY 4.0 License. See [LICENSE](LICENSE).
