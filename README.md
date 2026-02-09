@@ -5,6 +5,8 @@ Reference implementation for:
 > Saito, K. (2025). **NRR-Core: Non-Resolution Reasoning as a Computational Framework for Contextual Identity and Ambiguity Preservation**.
 > *arXiv:2512.13478*
 
+Program Map (series hub): [NRR Program Map](./PROGRAM_MAP.md)
+
 ## Overview
 
 This repository provides the **Turn 1 Entropy** experiment that validates the core principle of Non-Resolution Reasoning (NRR): ambiguity should be **preserved** until sufficient context arrives, rather than collapsed prematurely.
