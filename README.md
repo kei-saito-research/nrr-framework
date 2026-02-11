@@ -147,7 +147,7 @@ No deep learning framework required. All operations are pure NumPy.
 
 - [NRR-Phi](https://github.com/kei-saito-research/nrr-phi) - Text-to-state mapping *(arXiv:2601.19933)*
 - [NRR-IME](https://github.com/kei-saito-research/nrr-ime) - Structure-aware optimization
-- [NRR-Universal](https://github.com/kei-saito-research/nrr-universal) - Universal generality validation
+- [NRR-Transfer](https://github.com/kei-saito-research/nrr-transfer) - Cross-domain transfer validation
 
 ## Citation
 
@@ -176,7 +176,7 @@ This ensures consistency with the paper's mathematical formulation (Section 6, E
 
 ### Reproducibility
 
-The experiment uses fixed random seeds (42, 123, 456, 789, 1000) for reproducibility. However, due to the simplified backpropagation and small model size, individual seed results may vary slightly from run to run. The aggregate statistics (mean ± std) should match the paper within tolerance (±0.03 bits).
+The experiment uses fixed random seeds (42, 123, 456, 789, 1000) for reproducibility. However, due to the simplified backpropagation and small model size, individual seed results may vary slightly from run to run. The aggregate statistics (mean ± std) should match the paper within tolerance (±0.03 bits). See [`reproducibility.md`](./reproducibility.md) for environment, fixed settings, runnable commands, and artifact mapping.
 
 ## Commercial Use
 

@@ -7,7 +7,7 @@ For the latest status, links, and read order, use this page only.
 1. **NRR-Core** (foundation)
 2. **NRR-Phi** (text-to-state mapping + operator principles)
 3. **NRR-IME** (implementation on stateless APIs)
-4. **NRR-Universal** (cross-domain generalization)
+4. **NRR-Transfer** (cross-domain transfer)
 5. **NRR-Principal** (in preparation)
 6. **NRR-Hout** (output-side diagnostic; planned update after Principal)
 
@@ -25,9 +25,9 @@ For the latest status, links, and read order, use this page only.
 - Paper: arXiv submission pending
 - Code: [github.com/kei-saito-research/nrr-ime](https://github.com/kei-saito-research/nrr-ime)
 
-### 4) NRR-Universal
+### 4) NRR-Transfer
 - Paper: arXiv submission pending
-- Code: [github.com/kei-saito-research/nrr-universal](https://github.com/kei-saito-research/nrr-universal)
+- Code: [github.com/kei-saito-research/nrr-transfer](https://github.com/kei-saito-research/nrr-transfer)
 
 ### 5) NRR-Principal
 - Paper: in preparation
@@ -41,7 +41,7 @@ For the latest status, links, and read order, use this page only.
 - **Core**: Introduces NRR and non-resolution as a computational principle.
 - **Phi**: Defines text-to-state mapping and non-collapsing operator conditions.
 - **IME**: Finds the stable implementation pattern (Phase 1.5) for stateless APIs.
-- **Universal**: Tests whether the same Phase 1.5 interface generalizes across domains.
+- **Transfer**: Tests whether the same Phase 1.5 interface transfers across domains.
 - **Principal**: Consolidates and formalizes shared design principles.
 - **Hout**: Measures ambiguity preserved on the output side (`H_out`) as a diagnostic layer.
 
