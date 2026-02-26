@@ -13,6 +13,10 @@ Publication status:
 - Current public snapshot in repo: `manuscript/current/paper1_nrr-core_v24.tex`
 - Archived local latest snapshot: `manuscript/archive/local-v36/paper1_nrr-core_v36.tex`
 
+## DOI
+
+[![DOI](https://zenodo.org/badge/DOI/10.5281/zenodo.18793554.svg)](https://doi.org/10.5281/zenodo.18793554)
+
 ## Overview
 
 This repository provides the **Turn 1 Entropy** experiment that validates the core principle of Non-Resolution Reasoning (NRR): ambiguity should be **preserved** until sufficient context arrives, rather than collapsed prematurely.
