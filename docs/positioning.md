@@ -13,6 +13,7 @@ NRR targets **ambiguity-preserving inference** for practical LLM systems. The ma
 ## Boundary Conditions
 
 - NRR is not anti-LLM and does not replace standard LLM use.
+- Do not claim: NRR is a universal replacement for standard LLM usage.
 - NRR is evaluated as conditional utility under specific tasks and protocols.
 - This page is for positioning; formal definitions remain in manuscript and reproducibility docs.
 
