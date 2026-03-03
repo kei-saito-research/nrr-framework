@@ -13,8 +13,9 @@ NRR-Core focuses on **ambiguity-preserving inference** for modern language model
 
 ## NRR Series Hub (Start here)
 
-This repository is the hub for the NRR series.
-- Program map: [NRR Program Map](./PROGRAM_MAP.md)
+For the cross-paper map and current series links, start here:
+- [NRR Series Hub](https://github.com/kei-saito-research/nrr-series-hub)
+- (legacy local map) [NRR Program Map](./PROGRAM_MAP.md)
 
 Version mapping source of truth: [`VERSION_MAP.md`](./VERSION_MAP.md)
 
